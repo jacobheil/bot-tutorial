@@ -5,15 +5,15 @@
 
 # This script will generate mad-libs based off of a William Carlos
 # Williams poem, 'The Red Wheelbarrow.' Each poem will then be
-# tweeted by your bot account. 
+# tweeted by your bot account.
 
 # Housekeeping: do not edit
-import json, io, tweepy, time, urllib2
+import json, io, time, urllib2 #, tweepy
 from random import randint
-from credentials_lacunybot import *
-auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
-auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
-api = tweepy.API(auth)
+# from credentials_lacunybot import *
+# auth = tweepy.OAuthHandler(CONSUMER_KEY, CONSUMER_SECRET)
+# auth.set_access_token(ACCESS_TOKEN, ACCESS_SECRET)
+# api = tweepy.API(auth)
 
 
 # Housekeeping: opening JSON files
@@ -38,8 +38,8 @@ list3 = json.loads(list3read)['occupations']
 poemlist = []
 counter = 0
 
-while counter < 1: # Change 2 to however many poems you want to produce
-    
+while counter < 2: # Change 2 to however many poems you want to produce
+
     # Pick random numbers
     list1num = randint(0, len(list1) - 1)
     list2num = randint(0, len(list2) - 1)
@@ -60,12 +60,11 @@ while counter < 1: # Change 2 to however many poems you want to produce
 
 
 # Line up tweets for bot
-
-for line in poemlist: 
+'''
+for line in poemlist:
     api.update_status(line)
     #print line
     time.sleep(15) # Sleep for 15 seconds
 
-
+'''
 print '[All done!]'
-
